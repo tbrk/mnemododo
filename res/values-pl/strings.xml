@@ -71,8 +71,8 @@
 <string name="setting_cards_to_load_summary">Wyważ wykorzystanie pamięci oraz prędkość ładowania zawartości kart.</string>
 <string name="select_trade_off">Wybierz kompromis</string>
 
-<string name="setting_center">Centruj tekst na karcie</string>
-<string name="setting_center_summary">Centruj tekst pytań i odpowiedzi.</string>
+<string name="setting_center">Wyśrodkuj tekst na karcie</string>
+<string name="setting_center_summary">Wyśrodkuj tekst pytań i odpowiedzi.</string>
 <string name="setting_touch_buttons">Przyciski na ekranie</string>
 <string name="setting_touch_buttons_summary">Wyświetl przycisk odsłaniający odpowiedź oraz przyciski ocen.</string>
 <string name="setting_font_size">Rozmiar tekstu na karcie</string>
@@ -155,5 +155,23 @@ Używaj z Mnemosyne na swoim PC lub Mac\'u do nauki w biegu!
 <string name="setting_restrict_search_summary">Poszukuj katalogów z kartami jedynie w podanej lokalizacji.</string>
 <string name="setting_restrict_search_title">Podaj lokalizację w której poszukiwać katalogów z kartami:</string>
 <string name="setting_restrict_search_message">(Pozostaw puste aby przeszukać cały telefon.)</string>
+
+
+<string name="grade0_short_help">Zupełnie zapomniane.</string>
+<string name="grade1_short_help">Zapomniane.</string>
+<string name="grade2_short_help">Bardzo trudne.</string>
+<string name="grade3_short_help">Trochę trudne.</string>
+<string name="grade4_short_help">Odpowiednie.</string>
+<string name="grade5_short_help">Zbyt łatwe.</string>
+
+<string name="grade01_help">W ogóle nie pamiętasz tej karty.</string>
+<string name="grade2_help">Ciężko udzielona odpowiedź. Przedział czasu był stanowczo za duży.</string>
+<string name="grade3_help">Poprawna odpowiedź, udzielona z dużym wysiłkiem. Przedział był prawdopodobnie zbyt duży.</string>
+<string name="grade4_help">Poprawna odpowiedź, wymagająca trochę wysiłku. Przedział czasu jest odpowiedni.</string>
+<string name="grade5_help">Poprawna odpowiedź, bez żadnych problemów. Przedział czasu był najprawdopodobniej za krótki.</string>
+
+<string name="grade0_new_help">Karta nie została jeszcze zapamiętana.</string>
+<string name="grade1_new_help">Podobnie jak \'0\', ale zaczynasz rozpoznawać kartę. Pokazuj ją rzadziej.</string>
+<string name="grade2345_new_help">Znasz już tę kartę i prawdopodobnie będziesz ją pamiętać przez kilka dni.</string>
 
 </resources>
