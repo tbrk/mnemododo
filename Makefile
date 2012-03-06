@@ -32,7 +32,7 @@ SDCARD=libs/sdcard.iso
 # run: android list
 AVD?=basic1.6
 
-.PHONY: clean cleanall listkeys sdcard debug release
+.PHONY: clean cleanall listkeys helpkeys sdcard debug release
 
 debug: setup
 	$(ANT) debug
@@ -48,6 +48,9 @@ emulator: sdcard
 	$(EMULATOR) -help-keys
 	$(EMULATOR) -avd $(AVD) -sdcard $(SDCARD) \
 	    -logcat $(LOGCAT_LEVEL) $(EMU_OPTIONS)
+
+helpkeys:
+	$(EMULATOR) -help-keys
 
 push:
 	$(ADB) push $(EXPORTDIR) /sdcard/cards
@@ -155,11 +158,9 @@ set-de:
 set-en:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language en;setprop persist.sys.country US;stop;sleep 5;start'
-
 set-es:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language es;setprop persist.sys.country ES;stop;sleep 5;start'
-
 set-fr:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language fr;setprop persist.sys.country FR;stop;sleep 5;start'
