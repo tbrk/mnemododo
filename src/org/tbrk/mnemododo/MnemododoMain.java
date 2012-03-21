@@ -401,7 +401,6 @@ abstract class MnemododoMain
             editor.putString("cards_to_load", Integer.toString(cards_to_load));
             editor.putBoolean("two_grading_rows", two_grading_rows);
             editor.putBoolean("fullscreen_mode", false);
-            editor.putBoolean("show_titlebar", true);
             editor.putBoolean("auto_play", auto_play);
             editor.putString("button_pos", Integer.toString(button_pos));
             editor.putString("style", Integer.toString(style));
@@ -416,7 +415,6 @@ abstract class MnemododoMain
         boolean two_grading_rows = settings.getBoolean("two_grading_rows", false);
         int nbutton_pos = Integer.parseInt(settings.getString("button_pos",
                 Integer.toString(BUTTON_POS_BOTTOM)));
-        boolean show_titlebar = settings.getBoolean("show_titlebar", true);
 
         boolean ncenter = settings.getBoolean("center", true);
         String ncard_font = settings.getString("card_font", "");
@@ -457,9 +455,6 @@ abstract class MnemododoMain
 
         // update the layout
         reconfigureButtons(nbutton_pos, two_grading_rows);
-
-        findViewById(R.id.titlebar)
-            .setVisibility(show_titlebar ? View.VISIBLE : View.GONE);
 
         if (touch_buttons && !will_load_cards) {
             show_panel
