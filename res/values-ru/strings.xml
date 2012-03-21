@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  translators: please do not change the name="..." attributes! -->
+
+<string name="grade0">0</string>
+<string name="grade1">1</string>
+<string name="grade2">2</string>
+<string name="grade3">3</string>
+<string name="grade4">4</string>
+<string name="grade5">5</string>
+<string name="show">Показать ответ</string>
+<string name="ok">ОК</string>
+
+<string name="skip_card">Пропустить карточку</string>
+<string name="schedule">Расписание</string>
+<string name="settings">Настройки</string>
+<string name="card_statistics">Статистика
+карточек</string>
+<string name="categories">Категории</string>
+<string name="activate_categories">Активировать
+категорию</string>
+
+<string name="select_card_dir">Выбрать папку с
+карточками</string>
+
+<string name="not_enough_memory_to_load">Недостаточно
+памяти для загрузки карточек.</string>
+<string name="fatal_error">Критическая ошибка</string>
+<string name="no_card_loaded_text">Непредвиденная
+ошибка: карточка не загружена.</string>
+<string name="update_overdue_text">Время экспорта из
+Mnemogogo истекло!</string>
+<string name="update_today_text">Время экспорта из
+Mnemogogo истекает сегодня.</string>
+<string name="no_card_dirs">Папки с карточками не
+найдены. Пожалуйста, экспортируйте из
+Mnemogogo!</string>
+<string name="corrupt_card_dir">Экспортированные
+карточки повреждены.</string>
+
+<string name="no_cards_title">Карточки не
+найдены</string>
+<string name="no_new_cards_title">Нет новых
+карточек</string>
+<string name="no_cards_left">В настоящий момент для
+повторения нет новых карточек.</string>
+<string name="learn_ahead">Изучить с опережением
+графика</string>
+<string name="replay_sounds">Повторить звуки.</string>
+
+<string name="in_text">В течение</string>
+<string name="day_text">дня</string>
+<string name="days_text">дней</string>
+
+<string name="statistics">Статистика</string>
+<string name="easiness">Уровень сложности:</string>
+<string name="repetitions">Повторения:</string>
+<string name="lapses">Ошибки:</string>
+<string name="grade">Оценка:</string>
+<string name="days_since_last_repetition">Количество дней
+с последнего повторения:</string>
+<string name="days_until_next_repetition">Количество дней
+до следующего повторения:</string>
+
+<string name="info">Информация</string>
+<string name="about_author_label">Автор:</string>
+<string name="about_author">Timothy Bourke</string>
+<string name="about_mnemosyne_label">Mnemosyne:</string>
+<string name="about_mnemosyne">Peter Bienstman</string>
+<string name="about_sm2_label">SM-2 Алгоритм:</string>
+<string name="about_sm2">Piotr Wozniak</string>
+<string name="about_translations">Перевод:</string>
+
+<string name="no_cards_main">Папка с карточками не
+была выбрана.</string>
+
+<string name="not_available">Данная функция не
+доступна.</string>
+
+<string name="setting_cat_operation">Операция</string>
+<string name="setting_cat_appearance">Вид</string>
+<string name="setting_cat_misc">Прочее</string>
+
+<string name="setting_card_dir">Папка с
+карточками</string>
+<string name="setting_card_dir_summary">Нахождение файлов,
+экспортированных из Mnemogogo.</string>
+<string name="cannot_find_card_dirs">(На данном
+устройстве не найдены!)</string>
+<string name="setting_cards_to_load">Загрузка
+карточек</string>
+<string name="setting_cards_to_load_summary">Сбалансировать
+загрузку и память.</string>
+<string name="select_trade_off">Выбрать
+компромисс</string>
+
+<string name="setting_center">Расположить текст
+карточки по центру</string>
+<string name="setting_center_summary">Расположить текст
+вопроса и ответа по центру.</string>
+<string name="setting_touch_buttons">Кнопки на
+экране</string>
+<string name="setting_touch_buttons_summary">Отобразить
+кнопки для ответа и оценки.</string>
+<string name="setting_font_size">Размер текста</string>
+<string name="setting_font_size_summary">Выбрать размер
+текста карточки.</string>
+<string name="select_font_size">Выбрать размер
+текста</string>
+
+<string name="setting_fullscreen_mode">Полноэкранный
+режим</string>
+<string name="setting_fullscreen_mode_summary">В
+полноэкранном режиме строка состояния
+скрыта
+(требуется перезагрузка).</string>
+<string name="setting_show_titlebar">Показать
+заголовок</string>
+<string name="setting_show_titlebar_summary">Заголовок
+отображает категорию и номер карточки
+для повторения.</string>
+
+<string name="loading_card_dir">Загрузка
+статистики...</string>
+<string name="loading_cards">Загрузка содержимого
+карточки...</string>
+<string name="searching_for_card_dirs">Поиск папки...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>Загружать больше, меньше
+	свободной памяти</item>
+	<item>Сбалансировать загрузку и
+	память</item>
+	<item>Загружать меньше, больше
+	свободной памяти</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>Очень мелкий</item>
+    <item>Мелкий</item>
+    <item>Нормальный</item>
+    <item>Крупный</item>
+    <item>Очень крупный</item>
+</string-array>
+
+<string name="eula_title">Лицензия</string>
+<string name="eula_accept">Принять</string>
+<string name="eula_refuse">Отклонить</string>
+
+<string name="setting_two_grading_rows">Крупные
+кнопки</string>
+<string name="setting_two_grading_rows_summary">Показать
+кнопки оценок в два ряда в узкоэкранном
+режиме.</string>
+
+<string name="setting_auto_play">Воспроизводить звуки
+автоматически</string>
+<string name="setting_auto_play_summary">Воспроизводить
+звуки сразу, как карточка
+загружена.</string>
+
+<string name="setting_button_pos">Раположение
+кнопок</string>
+<string name="setting_button_pos_summary">Расположение
+кнопок в широкоэкранном режиме.</string>
+<string name="select_button_pos">Расположить
+кнопки</string>
+<string-array name="entries_button_pos">
+    <item>Снизу</item>
+    <item>Слева</item>
+    <item>Справа</item>
+</string-array>
+
+<string name="no_cards_step1">На компьютере:
+Экспортируйте карточки из
+Mnemosyne на вашу SD карту, используя плагин
+Mnemogogo.</string>
+<string name="no_cards_step2">На телефоне: Выберите
+экспортированную папку в
+Mnemododo в меню Настройки (нажмите кнопку
+Меню и выберите Настройки).</string>
+
+<string name="setting_keys">Назначить горячие
+клавиши</string>
+<string name="setting_keys_summary">Назначить горячие
+клавиши для отображения ответов и
+оценок.</string>
+<string name="select_keys">Нажмите клавишу,
+чтобы:</string>
+<string name="key_show">Показать ответ</string>
+<string name="key_grade0">Оценить карточку 0</string>
+<string name="key_grade1">Оценить карточку 1</string>
+<string name="key_grade2">Оценить карточку 2</string>
+<string name="key_grade3">Оценить карточку 3</string>
+<string name="key_grade4">Оценить карточку 4</string>
+<string name="key_grade5">Оценить карточку 5</string>
+<string name="key_replay_sounds">Повторить звуки</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo позволяет просматривать на
+вашем мобильном телефоне карточки
+интервального повторения из Mnemosyne.
+
+Mnemosyne и плагин Mnemogogo должны
+быть установлены на вашем
+компьютере. Редактирование карточек на
+телефоне невозможно.
+
+Поддерживаются разметки HTML (включая LaTeX),
+графические объекты (включая карты),
+и звуки.
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Используйте вместе с Mnemosyne на вашем
+PC или Mac для запоминания методом
+интервального повторения!
+</string>
+
+<string name="setting_restrict_search">Ограничить поиск
+по папкам</string>
+<string name="setting_restrict_search_summary">Искать только
+в указанных папках.</string>
+<string name="setting_restrict_search_title">Указать путь
+для поиска папки:</string>
+<string name="setting_restrict_search_message">(Оставьте
+пустым для поиска по всему
+телефону.)</string>
+
+</resources>

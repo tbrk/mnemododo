@@ -94,15 +94,20 @@ bin/Mnemododo-release.apk: setup
 setup: libs/mnemogogo-android.jar icons
 
 mountsdcard: sdcard
-	mkdir -p libs/sdcard
+	@if [ -e libs/sdcard.iso.lock ]; then echo "sdcard locked!"; exit 2; fi
+	@mkdir -p libs/sdcard
 	sudo mount -t vfat -o loop,shortname=mixed $(SDCARD) libs/sdcard
+	@touch libs/sdcard.iso.lock
 
 umountsdcard:
+	@if [ ! -d libs/sdcard ]; then echo "sdcard not mounted!"; exit 2; fi
 	sudo umount libs/sdcard
-	rmdir libs/sdcard
+	@rmdir libs/sdcard
+	@rm libs/sdcard.iso.lock
 
 sdcard:
-	if [ ! -e $(SDCARD) ]; then \
+	@if [ ! -e $(SDCARD) ]; then \
+	    echo "making sdcard..."; \
 	    $(MKSDCARD) 512MB $(SDCARD); \
 	fi
 
@@ -170,6 +175,9 @@ set-hr:
 set-nl:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language nl;setprop persist.sys.country NL;stop;sleep 5;start'
+set-ru:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language ru;setprop persist.sys.country RU;stop;sleep 5;start'
 set-pl:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language pl;setprop persist.sys.country PL;stop;sleep 5;start'
@@ -189,6 +197,7 @@ clean:
 	-@$(RM) bin/classes/org/tbrk/mnemododo/*.class
 	-@$(RM) gen/org/tbrk/mnemododo/R.java
 
+realclean: cleanall
 cleanall: clean
 	-@$(RM) libs/mnemogogo-android.jar
 	-@$(RM) bin/mnemododo.apk

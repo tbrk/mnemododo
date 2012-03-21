@@ -276,6 +276,24 @@
 		    android:layout_height="wrap_content">
 
 		    <TextView
+			android:id="@+id/trans_ru"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:text="Русский"/>
+		    <TextView
+			android:id="@+id/trans_credit_ru"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Nikolay Chernov"/>
+		</TableRow>
+
+		<TableRow
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content">
+
+		    <TextView
 			android:id="@+id/trans_zh"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
