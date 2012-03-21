@@ -1,3 +1,11 @@
+20120322 2.0.0
+* Change data logging for Mnemosyne 2.x.
+* Remove the (buggy) hide title bar setting.
+* Russian translation.
+  (thanks to Nikolay Chernov)
+* Spanish translation.
+  (thanks to Paco Cubí)
+
 20100608 1.3.1
 * Implement 'scroll to answer' for long questions and answers.
   Suggested by Jan Egil Hagen.
