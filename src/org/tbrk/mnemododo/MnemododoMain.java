@@ -250,7 +250,22 @@ abstract class MnemododoMain
             button.setOnKeyListener(this);
         }
         
-        findViewById(R.id.category).setOnClickListener(this);
+        View catview = findViewById(R.id.category);
+        catview.setOnClickListener(this);
+        catview.setLongClickable(true);
+        catview.setOnLongClickListener(
+                new View.OnLongClickListener () {
+                    public boolean onLongClick(View v) {
+                        if (cur_card != null) {
+                            cur_card.toggleMarked();
+                            setCategory(cur_card.categoryName(),
+                                        cur_card.isMarked());
+                            carddb_dirty = true;
+                        }
+                        return true;
+                    }
+                }
+            );
 
         View leftview = findViewById(R.id.cards_left);
         leftview.setOnClickListener(this);
@@ -323,7 +338,9 @@ abstract class MnemododoMain
 
                 card_task = null;
 
-                setCategory(cur_card.categoryName());
+                if (cur_card != null) {
+                    setCategory(cur_card.categoryName(), cur_card.isMarked());
+                }
 
                 if (demo_imgson_path_override != null) {
                     webview.loadDataWithBaseURL("file://" +
@@ -982,10 +999,19 @@ abstract class MnemododoMain
         loadCardDB(path);
     }
 
-    public void setCategory(String category)
+    public void setCategory(String category, boolean marked)
     {
         TextView cat_title = (TextView) findViewById(R.id.category);
-        cat_title.setText(category);
+        if (marked) {
+            cat_title.setText(category + " *");
+        } else {
+            cat_title.setText(category);
+        }
+    }
+
+    public void setCategory(String category)
+    {
+        setCategory(category, false);
     }
 
     public void applyStyle(int style)
