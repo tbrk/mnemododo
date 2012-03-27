@@ -15,7 +15,7 @@ EXPORTDIR=libs/export
 TMPDIR=$(HOME)/tmp
 
 ANT=/usr/bin/ant
-RM=rm
+RM=rm -f
 LN=ln -s
 ETAGS=etags
 
