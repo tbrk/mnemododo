@@ -148,13 +148,6 @@ public final class R {
         public static final int fatal_error=0x7f060010;
         public static final int grade=0x7f060022;
         /**   translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
-  translators: please do not change the name="..." attributes! 
          */
         public static final int grade0=0x7f060000;
         public static final int grade01_help=0x7f060069;
@@ -266,8 +259,6 @@ public final class R {
         public static final int setting_two_grading_rows=0x7f060049;
         public static final int setting_two_grading_rows_summary=0x7f06004a;
         public static final int settings=0x7f06000a;
-        /**   translators: please do not change the name="..." attributes! 
-         */
         public static final int show=0x7f060006;
         public static final int skip_card=0x7f060008;
         public static final int statistics=0x7f06001e;

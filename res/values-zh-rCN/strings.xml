@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Chinese (simplified) translation by http://goapk.com -->
 <resources>
 
-<!--  translators: please do not change the name="..." attributes! -->
-   
 <string name="grade0">0</string>
 <string name="grade1">1</string>
 <string name="grade2">2</string>

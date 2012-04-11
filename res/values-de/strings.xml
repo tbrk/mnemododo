@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- German translation by Karsten Breitig -->
 <resources>
-
-<!--  translators: please do not change the name="..." attributes! -->
 
 <string name="grade0">0</string>
 <string name="grade1">1</string>
