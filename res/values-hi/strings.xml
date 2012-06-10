@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  translators: please do not change the name="..." attributes! -->
+
+<string name="grade0">०</string>
+<string name="grade1">१</string>
+<string name="grade2">२</string>
+<string name="grade3">३</string>
+<string name="grade4">४</string>
+<string name="grade5">५</string>
+<string name="show">ऊत्तर दिखाओ</string>
+<string name="ok">ठीक है</string>
+
+<string name="skip_card">आग्ला</string>
+<string name="schedule">नियत करें</string>
+<string name="settings">समायोजन</string>
+<string name="card_statistics">पत्तों के आंकड़े</string>
+<string name="categories">श्रेणीयां</string>
+<string name="activate_categories">श्रेणी सक्रिय करें</string>
+
+<string name="select_card_dir">डायरेक्टरी चुनें</string>
+
+<string name="not_enough_memory_to_load">पत्ते पढने के लिये उप्तुक्त memory नही</string>
+<string name="fatal_error">भावी त्रुटि</string>
+<string name="no_card_loaded_text">अनपेक्षि त्रुटि: पत्त पढा नही. गया.</string>
+<string name="update_overdue_text">Mnemogogo से निर्य़ात विलम्भित!</string>
+<string name="update_today_text">Mnemogogo से निर्य़ात आज करें.</string> <!-- export from Mnemogogo today -->
+<string name="no_card_dirs">पत्ते नही मिले. Mnemogogo से निर्य़ात करें!</string>
+<string name="corrupt_card_dir">उप्लब्ध पत्ते दूशित हैं.</string> <!-- available cards are corrupted-->
+
+<string name="no_cards_title">पत्ते उप्लब्ध नही</string>
+<string name="no_new_cards_title">नये पत्ते उप्लब्ध नही</string>
+<string name="no_cards_left">अभि पढने के लिये कोइ भि नया पत्ता नही है.</string>
+<string name="learn_ahead">समय से पेहले पढें</string>
+<string name="replay_sounds">ध्वनी दोबारा सुनें</string>
+
+<string name="in_text">अन्दर</string>
+<string name="day_text">दिन</string>
+<string name="days_text">दिन</string>
+
+<string name="statistics">आंकड़े</string>
+<string name="easiness">सरलता:</string>
+<string name="repetitions">आवृति:</string>
+<string name="lapses">Lapses:</string> <!-- need to understand exact usage -->
+<string name="grade">दर्जा:</string>
+<string name="days_since_last_repetition">पिछ्ले दोहराव से अभी तक बीते दिन:</string>
+<string name="days_until_next_repetition">अगले दोहराव तक बाकि दिन:</string>
+
+<string name="info">जान्कारी</string>
+<string name="about_author_label">लेखक:</string>
+<string name="about_author">Timothy Bourke (टिमथी बूर्क)</string>
+<string name="about_mnemosyne_label">Mnemosyne (नेमोसिन):</string>
+<string name="about_mnemosyne">Peter Bienstman (पीटर बीन्स्टमॅन)</string>
+<string name="about_sm2_label">SM-2 कलन विधी:</string>
+<string name="about_sm2">Piotr Wozniak (पोईटर वोज़्निऍक)</string>
+<string name="about_translations">अनुवाद:</string>
+
+<string name="no_cards_main">पत्ते पढ़ने के लिये उप्युक्त स्थान चुना नही गया है.</string>
+
+<string name="not_available">यह विशेश्ता उप्लब्ध नही है.</string>
+
+<string name="setting_cat_operation">Operation</string> <!-- need to understand exact usage -->
+<string name="setting_cat_appearance">रूप</string> 
+<string name="setting_cat_misc">विविध</string>
+
+<string name="setting_card_dir">पत्ते पढ़ने का स्था</string>
+<string name="setting_card_dir_summary">Mnemogogo से जहाँ पत्ते निर्यात किये गये हैं.</string>
+<string name="cannot_find_card_dirs">इस यन्त्र पर पत्ते नही मि</string>
+<string name="setting_cards_to_load">पत्ते पढ़ रहा हूँ</string> <!-- I am reading the cards, masculine -->
+<string name="setting_cards_to_load_summary">पत्ते पढ़्ते समय, memory और गति का संतुलन रखें.</string>
+<string name="select_trade_off">मध्यमार्ग चुनें</string>
+
+<string name="setting_center">मध्य</string> <!-- just center; the word text need not be translated in this context -->
+<string name="setting_center_summary">प्रश्न और उत्तर पत्ते के मध्य मैं दिखायें.</string>
+<string name="setting_touch_buttons">Onscreen buttons</string>
+<string name="setting_touch_buttons_summary">Display buttons for showing answers and grading.</string>
+<string name="setting_font_size">लेखनी का आकार</string>
+<string name="setting_font_size_summary">पत्तों पर लेखनी का आकार चुनें.</string>
+<string name="select_font_size">पत्तों पर लेखनी का आकार चुनें</string> <!-- same as previos string, are the required to be different? -->
+
+<string name="setting_fullscreen_mode">Fullscreen mode</string>
+<string name="setting_fullscreen_mode_summary">The status bar is hidden in fullscreen mode
+(requires restart).</string>
+<string name="setting_show_titlebar">Show titlebar</string>
+<string name="setting_show_titlebar_summary">The title bar displays the category and
+the number of cards to review.</string>
+
+<string name="loading_card_dir">Loading statistics...</string>
+<string name="loading_cards">Loading card contents...</string>
+<string name="searching_for_card_dirs">Searching for card directories...</string>
+
+<string-array name="entries_cards_to_load">
+	<item>More loading, less memory</item>
+	<item>Balance loading and memory</item>
+	<item>Less loading, more memory</item>
+</string-array>
+
+<string-array name="entries_font_size">
+    <item>बहुत छोटा</item>
+    <item>छोटा</item>
+    <item>साधारण</item>
+    <item>बड़ा</item>
+    <item>बहुत बड़ा</item>
+</string-array>
+
+<string name="eula_title">License (अनुज्ञापत्र)</string>
+<string name="eula_accept">Accept (मंज़ूर)</string>
+<string name="eula_refuse">Refuse (नामंज़ूर)</string>
+
+<string name="setting_two_grading_rows">बड़े बट्टन</string>
+<string name="setting_two_grading_rows_summary">संकीर्ण अंदाज़ मैं बड़े बट्टन २ कतार मैं दिखायें.</string>
+
+<string name="setting_auto_play">ध्वनी स्वतः चलायें</string>
+<string name="setting_auto_play_summary">पत्ता दिखाते हि ध्वनी अप्ने आप चलायें.</string>
+
+<string name="setting_button_pos">बट्टनों का स्थान</string>
+<string name="setting_button_pos_summary">चौड़े अंदाज़ मैं बट्टनों का स्थान.</string>
+<string name="select_button_pos">बट्टन . . . रखें</string>
+<string-array name="entries_button_pos">
+    <item>नीचे</item>
+    <item>बायीं ओर</item>
+    <item>दाहीनी ओर</item>
+</string-array>
+
+<string name="no_cards_step1">At a PC: Export cards from
+Mnemosyne to your SD card using the Mnemogogo plugin.</string>
+<string name="no_cards_step2">On this phone: choose the exported directory from the
+Mnemododo Settings screen (press the Menu button, and then choose Settings).</string>
+
+<string name="setting_keys">Key assignment</string>
+<string name="setting_keys_summary">Assign keys for showing answers and grading.</string>
+<string name="select_keys">Press the key to:</string>
+<string name="key_show">ऊत्तर दिखाओ</string>
+<string name="key_grade0">०</string> <!-- Grade a card 0 -->
+<string name="key_grade1">१</string> <!-- Grade a card 0 -->
+<string name="key_grade2">२</string> <!-- Grade a card 0 -->
+<string name="key_grade3">३</string> <!-- Grade a card 0 -->
+<string name="key_grade4">४</string> <!-- Grade a card 0 -->
+<string name="key_grade5">५</string> <!-- Grade a card 0 -->
+<string name="key_replay_sounds">ध्वनी पुनः सुनाओ</string>
+
+<!-- maximum 325 characters -->
+<string name="market_description">
+Mnemododo allows spaced-repetition flash cards from Mnemosyne to be reviewed on a mobile phone.
+
+Both Mnemosyne and the Mnemogogo plugin must be installed on your PC. Cards cannot be edited on your phone.
+
+There is support for HTML markup (including LaTeX), graphics (including maps), and sound.
+</string>
+
+<!-- maximum 80 characters -->
+<string name="market_promo">
+Use with Mnemosyne on your PC or Mac for spaced-repetition learning on the go!
+</string>
+
+<string name="setting_restrict_search">Restrict directory search</string>
+<string name="setting_restrict_search_summary">Only look for card directories under a specific path.</string>
+<string name="setting_restrict_search_title">Enter a path to search for card directories:</string>
+<string name="setting_restrict_search_message">(Leave blank to search the whole phone.)</string>
+
+<string name="grade0_short_help">बिल्कुल याद नहि</string>
+<string name="grade1_short_help">भूल गया</string>
+<string name="grade2_short_help">मुश्किल</string>
+<string name="grade3_short_help">थोड़ा मुश्किल</string>
+<string name="grade4_short_help">याद है</string>
+<string name="grade5_short_help">बहुत आसान</string>
+
+<string name="grade01_help">आप्को ये बिल्कुल याद नहि</string>
+<string name="grade2_help">बहुत कठिन जवाब. अन्तराल बहुत ज्यादा था</string>
+<string name="grade3_help">सहि जवाब, परन्तू बड़ि कठिनयी से. अन्तराल शयद ज्यादा था</string>
+<string name="grade4_help">सहि जवाब, परन्तू थोड़ि कठिनयी से. अन्तराल उप्युक्त था.</string>
+<string name="grade5_help">सहि जवाब, आसानि से. अन्तराल शयद कम था</string>
+
+<string name="grade0_new_help">आप्को यह पत्ता अभि याद नही.</string>
+<string name="grade1_new_help">\'0\' जैसा,परन्तु अब थोड़ा याद हो रहा है. अन्तराल बढ़ायें.</string>
+<string name="grade2345_new_help">आपने यह पत्ता अब याद कर लिया है. कदाचित कुछ दिनों तक स्मरण र.</string>
+
+</resources>

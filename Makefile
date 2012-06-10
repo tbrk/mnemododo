@@ -169,6 +169,9 @@ set-es:
 set-fr:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language fr;setprop persist.sys.country FR;stop;sleep 5;start'
+set-hi:
+	$(ADB) -e shell \
+	    'setprop persist.sys.language hi;setprop persist.sys.country IN;stop;sleep 5;start'
 set-hr:
 	$(ADB) -e shell \
 	    'setprop persist.sys.language hr;setprop persist.sys.country HR;stop;sleep 5;start'
