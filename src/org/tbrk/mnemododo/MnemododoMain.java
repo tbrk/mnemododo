@@ -871,7 +871,8 @@ abstract class MnemododoMain
             break;
 
         case DIALOG_SCHEDULE:
-            int daysLeft = carddb.cards.daysLeft(); /* XXX Null pointer exception here. */
+            if (carddb == null) { return null; }
+            int daysLeft = carddb.cards.daysLeft();
             if (daysLeft < 0) {
                 dialog = showInfo(R.string.update_overdue_text, false);
 
@@ -919,7 +920,8 @@ abstract class MnemododoMain
             break;
 
         case DIALOG_CATEGORIES:
-            int num_categories = carddb.cards.numCategories(); /* XXX Null pointer exception here. */
+            if (carddb == null) { return null; }
+            int num_categories = carddb.cards.numCategories();
             CharSequence[] items = new CharSequence[num_categories];
             boolean[] checked = new boolean[num_categories];
             
