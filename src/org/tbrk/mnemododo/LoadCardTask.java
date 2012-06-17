@@ -33,8 +33,10 @@ class LoadCardTask
     String html_pre;
     String html_post;
 
+    boolean legacy;
+
     LoadCardTask(TaskListener<Pair<Boolean, String>> callback, Card card,
-                 boolean center, String html_pre, String html_post)
+                 boolean center, String html_pre, String html_post, boolean legacy)
     {
         super(callback, R.string.loading_cards);
         this.card = card;
@@ -42,6 +44,7 @@ class LoadCardTask
         this.center = center;
         this.html_pre = html_pre;
         this.html_post = html_post;
+        this.legacy = legacy;
     }
 
     public void onPreExecute()
@@ -97,6 +100,8 @@ class LoadCardTask
 
         } else if (show_answer) {
             if (!card.getOverlay()) {
+                if (legacy) { html.append("<div id=\"q\"><div>"); }
+
                 html.append(question);
                 if (question_replay) {
                     this.addReplayButton(html, "replayQuestionSounds()");
@@ -104,6 +109,7 @@ class LoadCardTask
                 html.append("</div></div>"); // unclosed divs in question
                 html.append("<hr/>");
             }
+            if (legacy) { html.append("<div id=\"a\"><div>"); }
             html.append(answer);
             if (answer_replay) {
                 this.addReplayButton(html, "replayAnswerSounds()");
@@ -111,6 +117,7 @@ class LoadCardTask
             html.append("</div></div>"); // unclosed divs in answer
 
         } else {
+            if (legacy) { html.append("<div id=\"q\"><div>"); }
             html.append(question);
             if (question_replay) {
                 this.addReplayButton(html, "replayQuestionSounds()");

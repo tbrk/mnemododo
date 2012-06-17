@@ -197,5 +197,14 @@ class CardStore
             cards.setProgress(progress);
         }
     }
+
+    public boolean isLegacy()
+    {
+        if (cards != null) {
+            return (cards.logFormat() < 2);
+        }
+
+        return false;
+    }
 }
 

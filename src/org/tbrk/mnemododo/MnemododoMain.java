@@ -372,7 +372,7 @@ abstract class MnemododoMain
     {
         if (card_task == null) {
             card_task = new LoadCardTask(makeLoadCardListener(),
-                cur_card, center, html_pre, html_post);
+                cur_card, center, html_pre, html_post, carddb.isLegacy());
             carddb.setProgress(card_task);
             card_task.execute(is_question, start_thinking);
         }
@@ -1348,10 +1348,10 @@ abstract class MnemododoMain
             + "color: " + card_text_color + "; "
             + "background-color: " + card_back_color + "; "
             + "}"
-            + "div.q, div.a { " + qacenter + " }" // legacy...
             + "div#q, div#a { padding: 0px; margin: 0px; " + qacenter + " }"
             + "div#q>div, div#a>div { padding-left: 2px; padding-right: 2px;"
-            + "                       padding-top: 10px; padding-bottom: 10px }"
+            + "                       padding-top: 10px; padding-bottom: 10px; "
+            + qacenter + "}"
             + "hr { width: 100%; height: 1px; padding: 0px; margin: 0px; "
             + "     background-color: " + card_text_color + " ; border: 0px }"
             + "h3 { margin: 0px; padding: 0px; padding-top: 1.5ex;"
