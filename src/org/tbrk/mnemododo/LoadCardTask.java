@@ -92,10 +92,6 @@ class LoadCardTask
         boolean question_replay = c.hasQuestionSounds();
         boolean answer_replay = c.hasAnswerSounds();
         
-        if (center) {
-            html.append("<div style=\"text-align: center;\">");
-        }
-
         if (question == null || answer == null) {
             html.append(getString(R.string.no_card_loaded_text));
 
@@ -120,10 +116,6 @@ class LoadCardTask
                 this.addReplayButton(html, "replayQuestionSounds()");
             }
             html.append("</div></div>"); // unclosed divs in question
-        }
-
-        if (center) {
-            html.append("</div>");
         }
 
         html.append(html_post);

@@ -1332,8 +1332,10 @@ abstract class MnemododoMain
     protected String getCardHeader()
     {
         String tablecss = "";
+        String qacenter = "";
         if (center) {
             tablecss = "margin-left: auto; margin-right: auto; ";
+            qacenter = "text-align: center; ";
         }
         
         return
@@ -1344,7 +1346,8 @@ abstract class MnemododoMain
             + "color: " + card_text_color + "; "
             + "background-color: " + card_back_color + "; "
             + "}"
-            + "div#q, div#a { padding: 0px; margin: 0px; }"
+            + "div.q, div.a { " + qacenter + " }" // legacy...
+            + "div#q, div#a { padding: 0px; margin: 0px; " + qacenter + " }"
             + "div#q>div, div#a>div { padding-left: 2px; padding-right: 2px;"
             + "                       padding-top: 10px; padding-bottom: 10px }"
             + "hr { width: 100%; height: 1px; padding: 0px; margin: 0px; "
