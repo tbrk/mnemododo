@@ -84,16 +84,7 @@ class LoadCardTask
         html.append("  if (qelem && aelem) { window.scrollTo(0, qelem.offsetHeight); } }");
         html.append("</script>");
 
-        char[] catname = c.categoryName().toCharArray();
-        html.append("<body class=\"");
-        for (char l : catname) {
-            if (Character.isWhitespace(l)) {
-                html.append('_');
-            } else if (Character.isUnicodeIdentifierPart(l)) {
-                html.append(l);
-            }
-        }
-        html.append("\">");
+        html.append("<body>");
 
         String question = c.getQuestion();
         String answer = c.getAnswer();
@@ -110,30 +101,25 @@ class LoadCardTask
 
         } else if (show_answer) {
             if (!card.getOverlay()) {
-                html.append("<div class=\"card\" id=\"q\">");
                 html.append(question);
-                html.append("</div>");
                 if (question_replay) {
                     this.addReplayButton(html, "replayQuestionSounds()");
                 }
+                html.append("</div></div>"); // unclosed divs in question
                 html.append("<hr/>");
             }
-            html.append("<div class=\"card\" id=\"a\">");
             html.append(answer);
-            html.append("</div>");
-            
             if (answer_replay) {
                 this.addReplayButton(html, "replayAnswerSounds()");
             }
+            html.append("</div></div>"); // unclosed divs in answer
 
         } else {
-            html.append("<div class=\"card\" id=\"q\">");
             html.append(question);
-            html.append("</div>");
-
             if (question_replay) {
                 this.addReplayButton(html, "replayQuestionSounds()");
             }
+            html.append("</div></div>"); // unclosed divs in question
         }
 
         if (center) {
