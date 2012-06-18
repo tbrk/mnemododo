@@ -81,13 +81,28 @@ class LoadCardTask
         StringBuffer html = new StringBuffer(html_pre);
 
         html.append("<script language=\"javascript\">");
+        html.append("function adjust_div_heights() {");
+        html.append("    var qdiv = document.getElementById('q');");
+        html.append("    var adiv = document.getElementById('a');");
+        html.append("    var minh = window.innerHeight;");
+        html.append("    if (adiv) {");
+        html.append("      if (qdiv) { minh -= qdiv.offsetHeight; }");
+        html.append("      adiv.style.minHeight = minh - 1 + 'px';");
+        html.append("    } else {");
+        html.append("      qdiv.style.minHeight = minh + 'px';");
+        html.append("    }");
+        html.append("}");
+        html.append("window.onresize = adjust_div_heights;");
+        html.append("</script>");
+
+        html.append("<script language=\"javascript\">");
         html.append("function scroll() {");
         html.append("  var qelem = document.getElementById('q');");
         html.append("  var aelem = document.getElementById('a');");
         html.append("  if (qelem && aelem) { window.scrollTo(0, qelem.offsetHeight); } }");
         html.append("</script>");
 
-        html.append("<body>");
+        html.append("<body onload=\"adjust_div_heights()\">");
 
         String question = c.getQuestion();
         String answer = c.getAnswer();
