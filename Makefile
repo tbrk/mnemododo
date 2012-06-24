@@ -96,7 +96,7 @@ setup: libs/mnemogogo-android.jar icons
 mountsdcard: sdcard
 	@if [ -e libs/sdcard.iso.lock ]; then echo "sdcard locked!"; exit 2; fi
 	@mkdir -p libs/sdcard
-	sudo mount -t vfat -o loop,shortname=mixed $(SDCARD) libs/sdcard
+	sudo mount -t vfat -o loop,shortname=mixed,sync $(SDCARD) libs/sdcard
 	@touch libs/sdcard.iso.lock
 
 umountsdcard:
