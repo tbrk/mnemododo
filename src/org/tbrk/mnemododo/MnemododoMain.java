@@ -920,7 +920,7 @@ abstract class MnemododoMain
             break;
 
         case DIALOG_CATEGORIES:
-            if (carddb == null) { return null; }
+            if (carddb == null || carddb.cards == null) { return null; }
             int num_categories = carddb.cards.numCategories();
             CharSequence[] items = new CharSequence[num_categories];
             boolean[] checked = new boolean[num_categories];
