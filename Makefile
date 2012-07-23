@@ -37,8 +37,8 @@ AVD?=basic1.6
 debug: setup
 	$(ANT) debug
 	@if [ `$(ADB) devices | egrep -v 'List of devices attached|^$$' | wc -l` -eq 1 ]; then \
-	    echo "Installing Mnemododo-debug.apk"; \
-	    $(ADB) install -r bin/Mnemododo-debug.apk; \
+	    echo "Installing mnemododo-debug.apk"; \
+	    $(ADB) install -r bin/mnemododo-debug.apk; \
 	fi
 
 release: setup
@@ -76,11 +76,11 @@ jdb:
 	adb forward tcp:8000 jdwp:`adb jdwp | tail -1`
 	jdb -attach localhost:8000
 
-install-release: bin/Mnemododo-release.apk
-	$(ADB) install bin/Mnemododo-release.apk
+install-release: bin/mnemododo-release.apk
+	$(ADB) install -r bin/mnemododo-release.apk
 
-install-debug: bin/Mnemododo-debug.apk
-	$(ADB) install bin/Mnemododo-debug.apk
+install-debug: bin/mnemododo-debug.apk
+	$(ADB) install -r bin/mnemododo-debug.apk
 
 uninstall:
 	$(ADB) uninstall org.tbrk.mnemododo
