@@ -32,6 +32,7 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -40,6 +41,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.view.KeyEvent;
 import android.widget.TextView;
 import android.util.Log;
+import java.io.File;
 
 public class Settings
     extends PreferenceActivity
@@ -47,6 +49,8 @@ public class Settings
     protected int key_assign_mode = 0;
     protected Dialog key_assign_dialog = null;
     protected boolean is_demo = false;
+
+    PlatformInfo platform_info = new PlatformInfo(Settings.this);
 
     protected static final int key_text_ids[] = {
         R.id.key_show, R.id.key_grade0, R.id.key_grade1,
@@ -85,7 +89,7 @@ public class Settings
     private class FindCardDirsTask
         extends ProgressTask<Boolean, Vector<String>>
     {
-        private String restrict_path[] = null;
+        private String restrict_paths[] = null;
 
         FindCardDirsTask(TaskListener<Vector<String>> callback)
         {
@@ -97,11 +101,22 @@ public class Settings
             if (!is_demo) {
                 SharedPreferences prefs =
                     PreferenceManager.getDefaultSharedPreferences(Settings.this);
+
+                File extdir = null;
+                if (platform_info.hasExternalFilesDir()) {
+                    extdir = platform_info.getExternalFilesDir(Settings.this);
+                }
     
                 String path = prefs.getString("restrict_search", "").trim();
                 if (!path.equals("")) {
-                    restrict_path = new String[1];
-                    restrict_path[0] = path;
+                    if (extdir == null) {
+                        restrict_paths = new String[1];
+                        restrict_paths[0] = path;
+                    } else {
+                        restrict_paths = new String[2];
+                        restrict_paths[0] = path;
+                        restrict_paths[1] = extdir.toString();
+                    }
                 }
             }
         }
@@ -109,18 +124,40 @@ public class Settings
         public Vector<String> doInBackground(Boolean... ignore)
         {
             Vector<String> result = null;
+            File roots[] = new File[1];
+
             try {
                 startOperation(0, "");
-                if (restrict_path == null) {
+
+                if (restrict_paths != null) {
+                    result = FindCardDirAndroid.list(restrict_paths);
+
+                } else if (is_demo) {
                     result = FindCardDirAndroid.list(!is_demo);
+
                 } else {
-                    result = FindCardDirAndroid.list(restrict_path);
+                    result = null;
+
+                    if (platform_info.hasExternalFilesDir()) {
+                        roots[0] = platform_info.getExternalFilesDir(Settings.this);
+                        result = FindCardDirAndroid.list(roots);
+                    }
+
+
+                    if (result == null || result.isEmpty()) {
+                        roots[0] = Environment.getExternalStorageDirectory();
+                        result = FindCardDirAndroid.list(roots);
+                    }
                 }
-            } catch (Exception e) {
+
+            } catch (Exception e) { }
+
+            stopOperation();
+
+            if (result == null) {
                 result = new Vector<String>();
             }
 
-            stopOperation();
             return result;
         }
     }
@@ -197,12 +234,27 @@ public class Settings
 
     public CharSequence[] getCardDirValues(CharSequence[] entries)
     {        
+        String extdir = null;
+        String cardpath = Environment.getExternalStorageDirectory().toString();
+
         CharSequence[] values = new CharSequence[entries.length];
+
+        if (platform_info.hasExternalFilesDir()) {
+            File dir = platform_info.getExternalFilesDir(Settings.this);
+            if (dir != null) {
+                extdir = dir.toString();
+            }
+        }
+
         for (int i=0; i < entries.length; ++i) {
             String e = entries[i].toString();
             if (e.startsWith(HexCsvAndroid.demo_prefix)) {
                 values[i] = "demo: "
                     + e.substring(HexCsvAndroid.demo_prefix.length());
+            } else if (extdir != null && e.startsWith(extdir)) {
+                values[i] = e.substring(extdir.length() + 1);
+            } else if (e.startsWith(cardpath)) {
+                values[i] = e.substring(cardpath.length());
             } else {
                 values[i] = entries[i];
             }
@@ -252,6 +304,14 @@ public class Settings
         super.onPause();
         if (find_task != null) {
             find_task.pause();
+        }
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        if (find_task != null) {
+            find_task.destroy();
         }
     }
 

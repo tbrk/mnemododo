@@ -27,7 +27,8 @@
             android:launchMode="singleTop"/>
     </application>
 
-    <uses-sdk android:minSdkVersion="4" />
+    <uses-sdk android:minSdkVersion="4"
+	      android:targetSdkVersion="8" />
     
     <supports-screens
 	android:largeScreens="true"

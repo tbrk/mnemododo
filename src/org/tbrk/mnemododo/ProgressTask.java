@@ -128,6 +128,13 @@ public abstract class ProgressTask<Params, Result>
         }
     }
 
+    public void destroy()
+    {
+        pause();
+        cancel(true);
+        finished = true;
+    }
+
     public void onPostExecute(Result result)
     {
         if (callback == null) {
@@ -137,5 +144,6 @@ public abstract class ProgressTask<Params, Result>
             callback.onFinished(result);
         }
     }
+
 }
 

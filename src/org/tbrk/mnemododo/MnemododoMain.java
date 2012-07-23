@@ -160,7 +160,8 @@ abstract class MnemododoMain
     boolean is_wide_screen = false;
     
     SoundPlayer sound_player = new SoundPlayer(MnemododoMain.this);
-    
+    PlatformInfo platform_info = new PlatformInfo(MnemododoMain.this);
+
     private Handler handler = new Handler();
     private Animation buttonAnimation;
     private Runnable makeViewVisible = new Runnable() {
@@ -288,6 +289,16 @@ abstract class MnemododoMain
         // Animation
         buttonAnimation = new AlphaAnimation(0.0f, 1.0f);
         buttonAnimation.setDuration(make_visible_fade_delay);
+
+        // Create default cards dir if necessary
+        if (platform_info.hasExternalFilesDir()) {
+            File dir = platform_info.getExternalFilesDir(MnemododoMain.this);
+            try {
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+            } catch (Exception e) { }
+        }
         
         Eula.show(MnemododoMain.this);
     }
@@ -1140,6 +1151,11 @@ abstract class MnemododoMain
 
             html.append("<li style=\"padding-bottom: 2ex;\">");
             html.append(getString(R.string.no_cards_step1));
+
+            if (platform_info.hasExternalFilesDir()) {
+                File dir = platform_info.getExternalFilesDir(MnemododoMain.this);
+                html.append("<br/><em>(" + dir.toString() + ")</em>");
+            }
             html.append("</li>");
 
             html.append("<li>");
