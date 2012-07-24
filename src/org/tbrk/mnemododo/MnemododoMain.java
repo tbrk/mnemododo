@@ -24,6 +24,7 @@ import java.util.Date;
 import mnemogogo.mobile.hexcsv.Card;
 import mnemogogo.mobile.hexcsv.HexCsvAndroid;
 import mnemogogo.mobile.hexcsv.FindCardDirAndroid;
+import android.os.Environment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -1154,7 +1155,15 @@ abstract class MnemododoMain
 
             if (platform_info.hasExternalFilesDir()) {
                 File dir = platform_info.getExternalFilesDir(MnemododoMain.this);
-                html.append("<br/><em>(" + dir.toString() + ")</em>");
+                File mnt = Environment.getExternalStorageDirectory();
+
+                String path = dir.toString();
+
+                if (mnt != null && path.startsWith(mnt.toString())) {
+                    path = path.substring(mnt.toString().length());
+                }
+
+                html.append("<br/>(" + path + ")");
             }
             html.append("</li>");
 
