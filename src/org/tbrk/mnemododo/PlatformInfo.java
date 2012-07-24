@@ -45,7 +45,7 @@ class PlatformInfo
         }
     }
 
-    private static class FroyoPlatformInfo
+    private static class GingerbreadPlatformInfo
         implements PlatformInfoProvider
     {
         public boolean hasExternalFilesDir()
@@ -64,10 +64,13 @@ class PlatformInfo
     PlatformInfo(Context context)
     {
         final int sdkVersion = Integer.parseInt(Build.VERSION.SDK);
-        if (sdkVersion < Build.VERSION_CODES.FROYO) { /* SDK 8 */
+        if (sdkVersion < Build.VERSION_CODES.GINGERBREAD) { /* SDK 10 */
             info = new BasicPlatformInfo();
         } else {
-            info = new FroyoPlatformInfo();
+            /* The call exists in FROYO, but there is a bug whereby
+               the external files directory is deleted on upgrade!
+               https://groups.google.com/forum/?fromgroups#!topic/android-developers/to1AsfE-Et8 */
+            info = new GingerbreadPlatformInfo();
         }
     }
 

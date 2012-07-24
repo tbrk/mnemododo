@@ -30,7 +30,7 @@ MKSDCARD=$(ANDROIDSDK)/tools/mksdcard
 SDCARD=libs/sdcard.iso
 
 # run: android list
-AVD?=basic1.6
+AVD?=gingerbread
 
 .PHONY: clean cleanall listkeys helpkeys sdcard debug release
 
