@@ -57,6 +57,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.SeekBar;
+import android.widget.ListView;
+import android.widget.AdapterView;
 import android.util.Log;
 
 abstract class MnemododoMain
@@ -160,7 +162,7 @@ abstract class MnemododoMain
     int button_pos = BUTTON_POS_BOTTOM;
     boolean is_wide_screen = false;
     
-    SoundPlayer sound_player = new SoundPlayer(MnemododoMain.this);
+    SoundPlayer sound_player = null;
     PlatformInfo platform_info = new PlatformInfo(MnemododoMain.this);
 
     private Handler handler = new Handler();
@@ -232,6 +234,7 @@ abstract class MnemododoMain
             }
         });
 
+        sound_player = new SoundPlayer(MnemododoMain.this);
 
         grading_panel = (TableLayout) findViewById(R.id.grading_buttons_bottom);
         show_panel = (ViewGroup) findViewById(R.id.show_buttons_bottom);
@@ -935,7 +938,7 @@ abstract class MnemododoMain
             if (carddb == null || carddb.cards == null) { return null; }
             int num_categories = carddb.cards.numCategories();
             CharSequence[] items = new CharSequence[num_categories];
-            boolean[] checked = new boolean[num_categories];
+            final boolean[] checked = new boolean[num_categories];
             
             for (int i=0; i < num_categories; ++i) {
                 items[i] = carddb.cards.getCategory(i);
@@ -949,19 +952,49 @@ abstract class MnemododoMain
                 new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog,
                                         int item, boolean value) {
-                        carddb.cards.setSkipCategory(item, !value);
+                        checked[item] = value;
                     }
             })
             .setCancelable(false)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
+                    for (int i = 0; i < checked.length; ++i) {
+                        carddb.cards.setSkipCategory(i, !checked[i]);
+                    }
+
                     carddb.writeCategorySkips();
                     carddb.cards.rebuildQueue();
                     nextQuestion();
                 }
             });
+
+            AlertDialog adialog = builder.create();
+            ListView lv = adialog.getListView();
+            lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                    public boolean onItemLongClick(AdapterView parent, View view,
+                                                   int position, long id) {
+                        boolean all_set = true;
+                        ListView lv = (ListView)parent;
+
+                        for (int i = 0; i < checked.length; ++i) {
+                            if (!checked[i]) {
+                                all_set = false;
+                                lv.setItemChecked(i, true);
+                                checked[i] = true;
+                            }
+                        }
+
+                        if (all_set) {
+                            for (int i = 0; i < checked.length; ++i) {
+                                lv.setItemChecked(i, false);
+                                checked[i] = false;
+                            }
+                        }
+
+                        return true;
+                    }});
             
-            dialog = (Dialog)builder.create();
+            dialog = (Dialog)adialog;
             break;
 
         case DIALOG_STYLES:
