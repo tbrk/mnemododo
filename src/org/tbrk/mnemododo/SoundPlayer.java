@@ -34,11 +34,14 @@ public class SoundPlayer
     private String base_path = "";
     private Queue<String> to_play = new LinkedList<String>();
     private MediaPlayer mp = null;
-    private Context context = null;
+
+    private AssetFileDescriptor silence_afd = null;
     
     public SoundPlayer(Context context)
     {
-        this.context = context;
+        try {
+            silence_afd = context.getResources().openRawResourceFd(R.raw.silence);
+        } catch (Exception e) { }
     }
     
     public void setBasePath(String path)
@@ -70,6 +73,11 @@ public class SoundPlayer
     public void release()
     {
         clear();
+        if (silence_afd != null) {
+            try {
+                silence_afd.close();
+            } catch (IOException e) { }
+        }
         if (mp != null) {
             mp.release();
             mp = null;
@@ -118,16 +126,14 @@ public class SoundPlayer
         try {
             String file = to_play.element();
             if (file == null) {
-                AssetFileDescriptor afd =
-                    context.getResources().openRawResourceFd(R.raw.silence);
-                if (afd == null) {
+                if (silence_afd == null) {
                     to_play.remove();
                     startPlaying();
                     return;
                 }
-                mp.setDataSource(afd.getFileDescriptor(),
-                        afd.getStartOffset(), afd.getLength());
-                afd.close();
+                mp.setDataSource(silence_afd.getFileDescriptor(),
+                                 silence_afd.getStartOffset(),
+                                 silence_afd.getLength());
 
             } else {
                 FileInputStream fis = new FileInputStream(file);
