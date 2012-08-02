@@ -973,22 +973,12 @@ abstract class MnemododoMain
             lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                     public boolean onItemLongClick(AdapterView parent, View view,
                                                    int position, long id) {
-                        boolean all_set = true;
                         ListView lv = (ListView)parent;
+                        boolean check = !lv.isItemChecked(position);
 
                         for (int i = 0; i < checked.length; ++i) {
-                            if (!checked[i]) {
-                                all_set = false;
-                                lv.setItemChecked(i, true);
-                                checked[i] = true;
-                            }
-                        }
-
-                        if (all_set) {
-                            for (int i = 0; i < checked.length; ++i) {
-                                lv.setItemChecked(i, false);
-                                checked[i] = false;
-                            }
+                            lv.setItemChecked(i, check);
+                            checked[i] = check;
                         }
 
                         return true;
