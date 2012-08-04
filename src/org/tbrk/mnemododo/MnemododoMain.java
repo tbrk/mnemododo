@@ -955,7 +955,7 @@ abstract class MnemododoMain
                         checked[item] = value;
                     }
             })
-            .setCancelable(false)
+            .setCancelable(true)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     for (int i = 0; i < checked.length; ++i) {
@@ -985,6 +985,7 @@ abstract class MnemododoMain
                     }});
             
             dialog = (Dialog)adialog;
+            dialog.setCanceledOnTouchOutside(true);
             break;
 
         case DIALOG_STYLES:
