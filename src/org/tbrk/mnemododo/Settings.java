@@ -252,7 +252,11 @@ public class Settings
                 values[i] = "demo: "
                     + e.substring(HexCsvAndroid.demo_prefix.length());
             } else if (extdir != null && e.startsWith(extdir)) {
-                values[i] = e.substring(extdir.length() + 1);
+                if (e.length() == extdir.length()) {
+                    values[i] = "[files]";
+                } else {
+                    values[i] = e.substring(extdir.length() + 1);
+                }
             } else if (e.startsWith(cardpath)) {
                 values[i] = e.substring(cardpath.length());
             } else {
