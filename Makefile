@@ -19,7 +19,7 @@ RM=rm -f
 LN=ln -s
 ETAGS=etags
 
-ANDROIDSDK=/opt/android-sdk-linux_x86
+ANDROIDSDK=/opt/adt-bundle-linux/sdk
 
 EMULATOR=$(ANDROIDSDK)/tools/emulator
 EMU_OPTIONS= -no-boot-anim -no-skin
