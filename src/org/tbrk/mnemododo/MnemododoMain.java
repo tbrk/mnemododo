@@ -143,7 +143,7 @@ abstract class MnemododoMain
 
     int style = STYLE_LIGHT;
 
-    String card_font_size = "normal";
+    String card_font_size = "medium";
     String card_text_color = "black";
     String card_back_color = "white";
     String card_font = "";
@@ -450,7 +450,7 @@ abstract class MnemododoMain
 
         boolean ncenter = settings.getBoolean("center", true);
         String ncard_font = settings.getString("card_font", "");
-        String ncard_font_size = settings.getString("card_font_size", "normal");
+        String ncard_font_size = settings.getString("card_font_size", "medium");
 
         boolean reload = (center != ncenter)
             || (!card_font.equals(ncard_font))
@@ -1388,12 +1388,30 @@ abstract class MnemododoMain
             tablecss = "margin-left: auto; margin-right: auto; ";
             qacenter = "text-align: center; ";
         }
+
+        /* Fix font-sizing; it should always have been completely relative. */
+        float font_size = 1.0f;
+
+        if (card_font_size.equals("x-small")) {
+            font_size = 0.83f;
+        } else if (card_font_size.equals("smaller")) {
+            font_size = 0.70f;
+        } else if (card_font_size.equals("larger")) {
+            font_size = 1.20f;
+        } else if (card_font_size.equals("x-large")) {
+            font_size = 1.44f;
+        }
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        String font_percentage = Integer.toString((int)(font_size * metrics.density * 100.0));
         
         return
             "<html><head>"
             + "<style>"
             + "body { margin: 0px; "
-            + "font-size: " + card_font_size + "; "
+            + "font-size: " + font_percentage + "%; "
             + "color: " + card_text_color + "; "
             + "background-color: " + card_back_color + "; "
             + "}"
@@ -1403,14 +1421,13 @@ abstract class MnemododoMain
             + qacenter + "}"
             + "hr { width: 100%; height: 1px; padding: 0px; margin: 0px; "
             + "     background-color: " + card_text_color + " ; border: 0px }"
-            + "h3 { margin: 0px; padding: 0px; padding-top: 1.5ex;"
-            + "     font-size: normal; }"
             + "table { " + tablecss + "}"
-            + "tr { font-size: " + card_font_size + "; }"
+            + "tr { font-size: " + font_percentage + "%; }"
             + "</style>"
             + "<link rel=\"stylesheet\" href=\"DEFAULT.CSS\" type=\"text/css\">"
             + "<link rel=\"stylesheet\" href=\"STYLE.CSS\" type=\"text/css\">"
             + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"
+            + "<meta name=\"viewport\" content=\"target-densitydpi=device-dpi\" />"
             + "</head>";
     }
 
