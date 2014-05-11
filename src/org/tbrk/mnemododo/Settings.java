@@ -140,7 +140,9 @@ public class Settings
 
                     if (platform_info.hasExternalFilesDir()) {
                         roots[0] = platform_info.getExternalFilesDir(Settings.this);
-                        result = FindCardDirAndroid.list(roots);
+                        if (roots[0] != null) {
+                            result = FindCardDirAndroid.list(roots);
+                        }
                     }
 
 

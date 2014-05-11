@@ -1177,14 +1177,25 @@ abstract class MnemododoMain
             html.append("<li style=\"padding-bottom: 2ex;\">");
             html.append(getString(R.string.no_cards_step1));
 
+            String mnt_path = "";
             if (platform_info.hasExternalFilesDir()) {
                 File dir = platform_info.getExternalFilesDir(MnemododoMain.this);
                 File mnt = Environment.getExternalStorageDirectory();
 
-                String path = dir.toString();
+                String path = "";
+                if (dir != null) {
+                    path = dir.toString();
 
-                if (mnt != null && path.startsWith(mnt.toString())) {
-                    path = path.substring(mnt.toString().length());
+                    if (mnt != null && path.startsWith(mnt.toString())) {
+                        path = path.substring(mnt.toString().length());
+                    }
+                } else {
+                    path = "external files dir: ?";
+                }
+
+                if ((mnt != null) && (path.length() > 0)) {
+                    mnt_path = "<br/><br/><br/><em>(external storage: "
+                                + mnt.toString() + ")</em>";
                 }
 
                 html.append("<br/>(" + path + ")");
@@ -1193,7 +1204,9 @@ abstract class MnemododoMain
 
             html.append("<li>");
             html.append(getString(R.string.no_cards_step2));
-            html.append("</li></ol></div>");
+            html.append("</li></ol>");
+            html.append(mnt_path);
+            html.append("</div>");
 
             html.append(html_post);
 
